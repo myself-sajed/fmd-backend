@@ -2,7 +2,7 @@ import createHttpError from "http-errors";
 import { UserModel } from "../../authentication/models/user-model";
 import { IDoctor, IGetAllDoctorFilter } from "../types/doctor-types";
 import { DoctorModel } from "../models/doctor-model";
-import { UserRoles } from "../../authentication/types/user-types";
+import { IUser, UserRoles } from "../../authentication/types/user-types";
 
 export class DoctorService {
     async createDoctor(payload: IDoctor): Promise<IDoctor> {
@@ -29,12 +29,25 @@ export class DoctorService {
         id: string,
         payload: Partial<IDoctor>,
     ): Promise<IDoctor> {
-        const doctor = await DoctorModel.findById(id);
+        const doctor = await DoctorModel.findById(id).populate("user").exec();
         if (!doctor) throw createHttpError(404, "Doctor not found");
 
+        // If user data is included in the update
+        if (payload.user && typeof payload.user === "object") {
+            const userPayload = payload.user as Partial<IUser>;
+            const userId = (doctor.user as IUser)._id;
+
+            await UserModel.findByIdAndUpdate(userId, userPayload, {
+                new: true,
+            });
+        }
+
+        // Remove user field from payload to avoid ObjectId casting error
+        delete payload.user;
+
         Object.assign(doctor, payload);
-        await doctor.save();
-        return await doctor.populate("user");
+        const savedDoctor = await doctor.save();
+        return await savedDoctor.populate("user");
     }
 
     async deleteDoctor(id: string): Promise<void> {
