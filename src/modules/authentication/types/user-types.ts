@@ -1,12 +1,13 @@
 export enum UserRoles {
-    ADMIN = "admin",
-    PATIENT = "client",
-    DOCTOR = "doctor",
+    ADMIN = "Admin",
+    PATIENT = "Client",
+    DOCTOR = "Doctor",
 }
 
 export interface IUser {
     name: string;
     email: string;
+    photoURL: string;
     password: string;
     role: UserRoles;
 }
