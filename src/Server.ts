@@ -1,11 +1,13 @@
 import app from "./app";
 import { Config } from "./config";
+import connectDB from "./config/db";
 import logger from "./config/logger";
 
-const startServer = () => {
+const startServer = async () => {
     try {
         const PORT = Config.PORT;
         logger.debug("this is a debug");
+        await connectDB();
         app.listen(PORT, () => logger.info(`Server running at ${PORT}`));
     } catch (error) {
         if (error instanceof Error) {
@@ -18,4 +20,4 @@ const startServer = () => {
     }
 };
 
-startServer();
+void startServer();

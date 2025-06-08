@@ -13,3 +13,16 @@ export interface IDoctor extends Document {
         to: string; // e.g., '17:00'
     };
 }
+
+export interface IGetAllDoctorFilter {
+    specialization?: string;
+    degree?: string;
+    experience?: number;
+    availability?: {
+        days?: string[];
+        from?: string;
+        to?: string;
+    };
+    page?: number;
+    limit?: number;
+}
