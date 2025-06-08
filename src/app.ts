@@ -1,13 +1,11 @@
-import express, { Request, Response, NextFunction } from "express";
+import express, { Request, Response } from "express";
 import { HttpError } from "http-errors";
 import bodyParser from "body-parser";
 
 const app = express();
-
-// Middleware
 app.use(bodyParser.json());
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// index route
 app.get("/", (req, res) => {
     res.send({
         status: "success",
@@ -15,13 +13,15 @@ app.get("/", (req, res) => {
     });
 });
 
-// routes
+// doctor outes
 import doctorRoutes from "./modules/doctor/routes/doctor-crud-routes";
 app.use("/api/v1/doctors", doctorRoutes);
 
+import caseRoutes from "./modules/case/routes/case-crud-routes";
+app.use("/api/v1/cases", caseRoutes);
+
 // Global error handling
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
+app.use((err: HttpError, req: Request, res: Response) => {
     const statusCode = err.statusCode || 500;
     res.status(statusCode).json({
         errors: [

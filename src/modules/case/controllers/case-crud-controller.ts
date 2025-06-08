@@ -1,0 +1,52 @@
+import { Request, Response, NextFunction } from "express";
+import { CaseService } from "../services/case-crud-services";
+import { ICase } from "../types/case-types";
+
+export class CaseController {
+    constructor(private caseService: CaseService) {}
+
+    create = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const created = await this.caseService.createCase(req.body as ICase);
+            res.status(201).json({ success: true, data: created });
+        } catch (err) {
+            next(err);
+        }
+    };
+
+    getAll = async (_req: Request, res: Response, next: NextFunction) => {
+        try {
+            const allCases = await this.caseService.getAllCases();
+            res.json({ success: true, data: allCases });
+        } catch (err) {
+            next(err);
+        }
+    };
+
+    getById = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const found = await this.caseService.getCaseById(req.params.id);
+            res.json({ success: true, data: found });
+        } catch (err) {
+            next(err);
+        }
+    };
+
+    update = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const updated = await this.caseService.updateCase(req.params.id, req.body as ICase);
+            res.json({ success: true, data: updated });
+        } catch (err) {
+            next(err);
+        }
+    };
+
+    delete = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await this.caseService.deleteCase(req.params.id);
+            res.status(204).send();
+        } catch (err) {
+            next(err);
+        }
+    };
+}
