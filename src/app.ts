@@ -1,7 +1,11 @@
 import express, { Request, Response, NextFunction } from "express";
 import { HttpError } from "http-errors";
+import bodyParser from "body-parser";
 
 const app = express();
+
+// Middleware
+app.use(bodyParser.json());
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.get("/", (req, res) => {
