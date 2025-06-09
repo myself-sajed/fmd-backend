@@ -12,7 +12,6 @@ const router = Router();
 const caseService = new CaseService();
 const caseController = new CaseController(caseService);
 
-// Versioned routes
 router.post(
     "/",
     (req: Request, res: Response, next: NextFunction) =>
