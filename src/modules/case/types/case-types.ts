@@ -9,7 +9,7 @@ export enum CaseStatus {
 }
 
 export interface ICase extends Document {
-    user: Types.ObjectId;
+    client: Types.ObjectId;
     client_raw_query: string;
     summary?: string; // AI-generated summary
     suggested_specializations?: string[]; // From AI
