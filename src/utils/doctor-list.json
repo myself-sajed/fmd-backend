@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Dr. Arjun Mehta",
+        "photoURL": "https://avatar.iran.liara.run/public/11",
+        "email": "arjun.mehta@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Priya Sharma",
+        "photoURL": "https://avatar.iran.liara.run/public/12",
+        "email": "priya.sharma@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Rohan Deshmukh",
+        "photoURL": "https://avatar.iran.liara.run/public/13",
+        "email": "rohan.deshmukh@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Aisha Qureshi",
+        "photoURL": "https://avatar.iran.liara.run/public/14",
+        "email": "aisha.qureshi@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Aniket Reddy",
+        "photoURL": "https://avatar.iran.liara.run/public/15",
+        "email": "aniket.reddy@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Meera Kapoor",
+        "photoURL": "https://avatar.iran.liara.run/public/16",
+        "email": "meera.kapoor@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Sanjay Patil",
+        "photoURL": "https://avatar.iran.liara.run/public/17",
+        "email": "sanjay.patil@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Kavita Nair",
+        "photoURL": "https://avatar.iran.liara.run/public/18",
+        "email": "kavita.nair@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Manish Verma",
+        "photoURL": "https://avatar.iran.liara.run/public/19",
+        "email": "manish.verma@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Sneha Joshi",
+        "photoURL": "https://avatar.iran.liara.run/public/20",
+        "email": "sneha.joshi@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Rahul Singh",
+        "photoURL": "https://avatar.iran.liara.run/public/21",
+        "email": "rahul.singh@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Divya Nambiar",
+        "photoURL": "https://avatar.iran.liara.run/public/22",
+        "email": "divya.nambiar@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Harshad Thakur",
+        "photoURL": "https://avatar.iran.liara.run/public/23",
+        "email": "harshad.thakur@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Nidhi Saxena",
+        "photoURL": "https://avatar.iran.liara.run/public/24",
+        "email": "nidhi.saxena@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Abhishek Banerjee",
+        "photoURL": "https://avatar.iran.liara.run/public/25",
+        "email": "abhishek.banerjee@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Pooja Desai",
+        "photoURL": "https://avatar.iran.liara.run/public/26",
+        "email": "pooja.desai@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Vinay Kulkarni",
+        "photoURL": "https://avatar.iran.liara.run/public/27",
+        "email": "vinay.kulkarni@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Ritu Bhargava",
+        "photoURL": "https://avatar.iran.liara.run/public/28",
+        "email": "ritu.bhargava@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Ajay Narayan",
+        "photoURL": "https://avatar.iran.liara.run/public/29",
+        "email": "ajay.narayan@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    },
+    {
+        "name": "Dr. Neha Bansal",
+        "photoURL": "https://avatar.iran.liara.run/public/30",
+        "email": "neha.bansal@example.com",
+        "password": "Password123!",
+        "role": "Doctor"
+    }
+]
