@@ -1,3 +1,5 @@
+import { Types } from "mongoose";
+
 export enum UserRoles {
     ADMIN = "Admin",
     PATIENT = "Client",
@@ -5,7 +7,7 @@ export enum UserRoles {
 }
 
 export interface IUser {
-    _id: string;
+    _id: Types.ObjectId;
     name: string;
     email: string;
     photoURL: string;
