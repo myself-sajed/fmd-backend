@@ -3,7 +3,7 @@ import { CaseStatus, ICase } from "../types/case-types";
 
 const caseSchema = new Schema<ICase>(
     {
-        user: {
+        client: {
             type: Schema.Types.ObjectId,
             ref: "User",
             required: true,
