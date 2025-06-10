@@ -1,8 +1,7 @@
-import { Types } from "mongoose";
 import { IUser } from "../../authentication/types/user-types";
 
 export interface IDoctor extends Document {
-    user: Types.ObjectId | IUser;
+    user: IUser;
     specialization: string[]; // e.g., ['Cardiology', 'Neurology']
     degree: string[]; // e.g., ['MBBS', 'MD']
     experience: number;
