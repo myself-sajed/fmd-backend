@@ -1,142 +1,463 @@
 [
     {
-        "name": "Dr. Arjun Mehta",
-        "photoURL": "https://avatar.iran.liara.run/public/11",
-        "email": "arjun.mehta@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c0"
+        },
+        "user": "6847197009e055be1ab420aa",
+        "specialization": ["Cardiology"],
+        "degree": ["MBBS", "MD (Cardiology)"],
+        "experience": 15,
+        "bio": "Experienced cardiologist with over 15 years treating heart conditions and hypertension.",
+        "availability": {
+            "days": ["Monday", "Wednesday", "Friday"],
+            "from": "10:00",
+            "to": "14:00"
+        },
+        "location": {
+            "address": "1 Heart Care Avenue",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "country": "India",
+            "pincode": "400001",
+            "coordinates": { "lat": 18.9388, "lng": 72.8354 }
+        }
     },
     {
-        "name": "Dr. Priya Sharma",
-        "photoURL": "https://avatar.iran.liara.run/public/12",
-        "email": "priya.sharma@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c1"
+        },
+        "user": "6847197009e055be1ab420ab",
+        "specialization": ["Dermatology"],
+        "degree": ["MBBS", "DDVL"],
+        "experience": 8,
+        "bio": "Skin and hair specialist with deep experience in treating acne, eczema, and pigmentation issues.",
+        "availability": {
+            "days": ["Tuesday", "Thursday"],
+            "from": "12:00",
+            "to": "16:00"
+        },
+        "location": {
+            "address": "22 Skin Wellness Rd",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "country": "India",
+            "pincode": "560001",
+            "coordinates": { "lat": 12.9716, "lng": 77.5946 }
+        }
     },
     {
-        "name": "Dr. Rohan Deshmukh",
-        "photoURL": "https://avatar.iran.liara.run/public/13",
-        "email": "rohan.deshmukh@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c2"
+        },
+        "user": "6847197009e055be1ab420ac",
+        "specialization": ["Pediatrics"],
+        "degree": ["MBBS", "DCH"],
+        "experience": 10,
+        "bio": "Passionate about child healthcare and immunizations with a decade of experience.",
+        "availability": {
+            "days": ["Monday", "Saturday"],
+            "from": "09:00",
+            "to": "13:00"
+        },
+        "location": {
+            "address": "7 Children's Clinic",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "country": "India",
+            "pincode": "411001",
+            "coordinates": { "lat": 18.5204, "lng": 73.8567 }
+        }
     },
     {
-        "name": "Dr. Aisha Qureshi",
-        "photoURL": "https://avatar.iran.liara.run/public/14",
-        "email": "aisha.qureshi@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c3"
+        },
+        "user": "6847197009e055be1ab420ad",
+        "specialization": ["Orthopedics"],
+        "degree": ["MBBS", "MS (Ortho)"],
+        "experience": 12,
+        "bio": "Specialist in joint replacement and fracture treatment.",
+        "availability": {
+            "days": ["Tuesday", "Friday"],
+            "from": "14:00",
+            "to": "18:00"
+        },
+        "location": {
+            "address": "34 Bone & Joint Hospital",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "country": "India",
+            "pincode": "600001",
+            "coordinates": { "lat": 13.0827, "lng": 80.2707 }
+        }
     },
     {
-        "name": "Dr. Aniket Reddy",
-        "photoURL": "https://avatar.iran.liara.run/public/15",
-        "email": "aniket.reddy@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c4"
+        },
+        "user": "6847197009e055be1ab420ae",
+        "specialization": ["General Medicine", "Diabetology"],
+        "degree": ["MBBS", "MD (General Medicine)"],
+        "experience": 14,
+        "bio": "Specialist in chronic disease management, particularly diabetes and hypertension.",
+        "availability": {
+            "days": ["Wednesday", "Saturday"],
+            "from": "11:00",
+            "to": "15:00"
+        },
+        "location": {
+            "address": "12 Chronic Care Street",
+            "city": "Hyderabad",
+            "state": "Telangana",
+            "country": "India",
+            "pincode": "500001",
+            "coordinates": { "lat": 17.385, "lng": 78.4867 }
+        }
     },
     {
-        "name": "Dr. Meera Kapoor",
-        "photoURL": "https://avatar.iran.liara.run/public/16",
-        "email": "meera.kapoor@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c5"
+        },
+        "user": "6847197009e055be1ab420af",
+        "specialization": ["ENT"],
+        "degree": ["MBBS", "MS (ENT)"],
+        "experience": 9,
+        "bio": "ENT surgeon with hands-on experience in treating hearing loss, sinusitis and throat disorders.",
+        "availability": {
+            "days": ["Monday", "Thursday"],
+            "from": "10:30",
+            "to": "13:30"
+        },
+        "location": {
+            "address": "21 Neuro Point",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "country": "India",
+            "pincode": "226001",
+            "coordinates": { "lat": 26.8467, "lng": 80.9462 }
+        }
     },
     {
-        "name": "Dr. Sanjay Patil",
-        "photoURL": "https://avatar.iran.liara.run/public/17",
-        "email": "sanjay.patil@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c6"
+        },
+        "user": "6847197009e055be1ab420b0",
+        "specialization": ["Gynecology"],
+        "degree": ["MBBS", "MD (Gynecology)"],
+        "experience": 11,
+        "bio": "Expert in maternal care, fertility, and women's reproductive health.",
+        "availability": {
+            "days": ["Tuesday", "Friday"],
+            "from": "13:00",
+            "to": "17:00"
+        },
+        "location": {
+            "address": "18 Women's Health Blvd",
+            "city": "Nagpur",
+            "state": "Maharashtra",
+            "country": "India",
+            "pincode": "440001",
+            "coordinates": { "lat": 21.1458, "lng": 79.0882 }
+        }
     },
     {
-        "name": "Dr. Kavita Nair",
-        "photoURL": "https://avatar.iran.liara.run/public/18",
-        "email": "kavita.nair@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c7"
+        },
+        "user": "6847197009e055be1ab420b1",
+        "specialization": ["Neurology"],
+        "degree": ["MBBS", "DM (Neurology)"],
+        "experience": 16,
+        "bio": "Neurologist specializing in epilepsy, stroke, and neurodegenerative disorders.",
+        "availability": {
+            "days": ["Monday", "Thursday"],
+            "from": "15:00",
+            "to": "19:00"
+        },
+        "location": {
+            "address": "21 Neuro Point",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "country": "India",
+            "pincode": "226001",
+            "coordinates": { "lat": 26.8467, "lng": 80.9462 }
+        }
     },
     {
-        "name": "Dr. Manish Verma",
-        "photoURL": "https://avatar.iran.liara.run/public/19",
-        "email": "manish.verma@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c8"
+        },
+        "user": "6847197009e055be1ab420b2",
+        "specialization": ["Psychiatry"],
+        "degree": ["MBBS", "MD (Psychiatry)"],
+        "experience": 10,
+        "bio": "Mental health professional helping patients with anxiety, depression, and mood disorders.",
+        "availability": {
+            "days": ["Wednesday", "Saturday"],
+            "from": "10:00",
+            "to": "14:00"
+        },
+        "location": {
+            "address": "5 Mind Wellness Center",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "country": "India",
+            "pincode": "462001",
+            "coordinates": { "lat": 23.2599, "lng": 77.4126 }
+        }
     },
     {
-        "name": "Dr. Sneha Joshi",
-        "photoURL": "https://avatar.iran.liara.run/public/20",
-        "email": "sneha.joshi@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420c9"
+        },
+        "user": "6847197009e055be1ab420b3",
+        "specialization": ["Pulmonology"],
+        "degree": ["MBBS", "MD (Pulmonary Medicine)"],
+        "experience": 13,
+        "bio": "Specialist in lung diseases including asthma, COPD, and post-COVID care.",
+        "availability": {
+            "days": ["Tuesday", "Friday"],
+            "from": "11:00",
+            "to": "15:00"
+        },
+        "location": {
+            "address": "30 Lungs Specialty Clinic",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "country": "India",
+            "pincode": "700001",
+            "coordinates": { "lat": 22.5726, "lng": 88.3639 }
+        }
     },
     {
-        "name": "Dr. Rahul Singh",
-        "photoURL": "https://avatar.iran.liara.run/public/21",
-        "email": "rahul.singh@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420ca"
+        },
+        "user": "6847197009e055be1ab420b4",
+        "specialization": ["Gastroenterology"],
+        "degree": ["MBBS", "DM (Gastroenterology)"],
+        "experience": 15,
+        "bio": "Treats digestive disorders including liver diseases, IBS, and ulcers.",
+        "availability": {
+            "days": ["Monday", "Thursday"],
+            "from": "13:00",
+            "to": "17:00"
+        },
+
+        "location": {
+            "address": "6 Liver Care Avenue",
+            "city": "Surat",
+            "state": "Gujarat",
+            "country": "India",
+            "pincode": "395003",
+            "coordinates": { "lat": 21.1702, "lng": 72.8311 }
+        }
     },
     {
-        "name": "Dr. Divya Nambiar",
-        "photoURL": "https://avatar.iran.liara.run/public/22",
-        "email": "divya.nambiar@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420cb"
+        },
+        "user": "6847197009e055be1ab420b5",
+        "specialization": ["Urology"],
+        "degree": ["MBBS", "MS (Urology)"],
+        "experience": 10,
+        "bio": "Expert in kidney, bladder, and male reproductive tract conditions.",
+        "availability": {
+            "days": ["Wednesday", "Friday"],
+            "from": "10:00",
+            "to": "13:00"
+        },
+        "location": {
+            "address": "14 UroMed Lane",
+            "city": "Indore",
+            "state": "Madhya Pradesh",
+            "country": "India",
+            "pincode": "452001",
+            "coordinates": { "lat": 22.7196, "lng": 75.8577 }
+        }
     },
     {
-        "name": "Dr. Harshad Thakur",
-        "photoURL": "https://avatar.iran.liara.run/public/23",
-        "email": "harshad.thakur@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420cc"
+        },
+        "user": "6847197009e055be1ab420b6",
+        "specialization": ["Oncology"],
+        "degree": ["MBBS", "DM (Oncology)"],
+        "experience": 18,
+        "bio": "Cancer specialist with experience in chemotherapy and radiation therapy.",
+        "availability": {
+            "days": ["Tuesday", "Saturday"],
+            "from": "09:00",
+            "to": "13:00"
+        },
+        "location": {
+            "address": "45 Hormone Clinic Lane",
+            "city": "Patna",
+            "state": "Bihar",
+            "country": "India",
+            "pincode": "800001",
+            "coordinates": { "lat": 25.5941, "lng": 85.1376 }
+        }
     },
     {
-        "name": "Dr. Nidhi Saxena",
-        "photoURL": "https://avatar.iran.liara.run/public/24",
-        "email": "nidhi.saxena@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420cd"
+        },
+        "user": "6847197009e055be1ab420b7",
+        "specialization": ["Endocrinology"],
+        "degree": ["MBBS", "DM (Endocrinology)"],
+        "experience": 12,
+        "bio": "Focuses on hormonal disorders, thyroid dysfunctions and diabetes.",
+        "availability": {
+            "days": ["Monday", "Thursday"],
+            "from": "11:00",
+            "to": "15:00"
+        },
+        "location": {
+            "address": "27 Oncology Center Road",
+            "city": "Thiruvananthapuram",
+            "state": "Kerala",
+            "country": "India",
+            "pincode": "695001",
+            "coordinates": { "lat": 8.5241, "lng": 76.9366 }
+        }
     },
     {
-        "name": "Dr. Abhishek Banerjee",
-        "photoURL": "https://avatar.iran.liara.run/public/25",
-        "email": "abhishek.banerjee@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420ce"
+        },
+        "user": "6847197009e055be1ab420b8",
+        "specialization": ["Nephrology"],
+        "degree": ["MBBS", "DM (Nephrology)"],
+        "experience": 10,
+        "bio": "Renal specialist helping with kidney disorders and dialysis planning.",
+        "availability": {
+            "days": ["Tuesday", "Friday"],
+            "from": "14:00",
+            "to": "18:00"
+        },
+        "location": {
+            "address": "33 Mind & Mood Center",
+            "city": "Vijayawada",
+            "state": "Andhra Pradesh",
+            "country": "India",
+            "pincode": "520001",
+            "coordinates": { "lat": 16.5062, "lng": 80.648 }
+        }
     },
     {
-        "name": "Dr. Pooja Desai",
-        "photoURL": "https://avatar.iran.liara.run/public/26",
-        "email": "pooja.desai@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420cf"
+        },
+        "user": "6847197009e055be1ab420b9",
+        "specialization": ["Psychology"],
+        "degree": ["M.Phil (Clinical Psychology)", "PhD (Psychology)"],
+        "experience": 8,
+        "bio": "Non-medical psychologist helping patients with counseling and cognitive therapy.",
+        "availability": {
+            "days": ["Wednesday", "Saturday"],
+            "from": "10:00",
+            "to": "14:00"
+        },
+        "location": {
+            "address": "11 Kidney Health Blvd",
+            "city": "Jaipur",
+            "state": "Rajasthan",
+            "country": "India",
+            "pincode": "302001",
+            "coordinates": { "lat": 26.9124, "lng": 75.7873 }
+        }
     },
     {
-        "name": "Dr. Vinay Kulkarni",
-        "photoURL": "https://avatar.iran.liara.run/public/27",
-        "email": "vinay.kulkarni@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420d0"
+        },
+        "user": "6847197009e055be1ab420ba",
+        "specialization": ["Rheumatology"],
+        "degree": ["MBBS", "MD", "DM (Rheumatology)"],
+        "experience": 13,
+        "bio": "Treats arthritis, lupus, and other autoimmune joint diseases.",
+        "availability": {
+            "days": ["Monday", "Friday"],
+            "from": "09:00",
+            "to": "13:00"
+        },
+        "location": {
+            "address": "2 Joint Immuno Care",
+            "city": "Coimbatore",
+            "state": "Tamil Nadu",
+            "country": "India",
+            "pincode": "641001",
+            "coordinates": { "lat": 11.0168, "lng": 76.9558 }
+        }
     },
     {
-        "name": "Dr. Ritu Bhargava",
-        "photoURL": "https://avatar.iran.liara.run/public/28",
-        "email": "ritu.bhargava@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420d1"
+        },
+        "user": "6847197009e055be1ab420bb",
+        "specialization": ["General Surgery"],
+        "degree": ["MBBS", "MS (General Surgery)"],
+        "experience": 17,
+        "bio": "Performs general and laparoscopic surgeries including hernia and appendectomy.",
+        "availability": {
+            "days": ["Tuesday", "Thursday"],
+            "from": "10:00",
+            "to": "14:00"
+        },
+        "location": {
+            "address": "13 Surgery House Lane",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "country": "India",
+            "pincode": "160017",
+            "coordinates": { "lat": 30.7333, "lng": 76.7794 }
+        }
     },
     {
-        "name": "Dr. Ajay Narayan",
-        "photoURL": "https://avatar.iran.liara.run/public/29",
-        "email": "ajay.narayan@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420d2"
+        },
+        "user": "6847197009e055be1ab420bc",
+        "specialization": ["Ophthalmology"],
+        "degree": ["MBBS", "MS (Ophthalmology)"],
+        "experience": 11,
+        "bio": "Eye specialist with expertise in cataract surgery and vision correction.",
+        "availability": {
+            "days": ["Wednesday", "Saturday"],
+            "from": "11:00",
+            "to": "15:00"
+        },
+        "location": {
+            "address": "40 Eye Care Street",
+            "city": "Nashik",
+            "state": "Maharashtra",
+            "country": "India",
+            "pincode": "422001",
+            "coordinates": { "lat": 19.9975, "lng": 73.7898 }
+        }
     },
     {
-        "name": "Dr. Neha Bansal",
-        "photoURL": "https://avatar.iran.liara.run/public/30",
-        "email": "neha.bansal@example.com",
-        "password": "Password123!",
-        "role": "Doctor"
+        "_id": {
+            "$oid": "68471ac309e055be1ab420d3"
+        },
+        "user": "6847197009e055be1ab420bd",
+        "specialization": ["Dermatology", "Cosmetology"],
+        "degree": ["MBBS", "MD (Dermatology)"],
+        "experience": 9,
+        "bio": "Specializes in skin treatments and aesthetic procedures like laser therapy.",
+        "availability": {
+            "days": ["Thursday", "Saturday"],
+            "from": "12:00",
+            "to": "16:00"
+        },
+        "location": {
+            "address": "8 Skin Aesthetics Lane",
+            "city": "Rajkot",
+            "state": "Gujarat",
+            "country": "India",
+            "pincode": "360001",
+            "coordinates": { "lat": 22.3039, "lng": 70.8022 }
+        }
     }
 ]
