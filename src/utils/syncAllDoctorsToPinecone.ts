@@ -2,14 +2,20 @@ import { PineconeDoctorIndex } from "../lib/pinecone-index";
 import { DoctorModel } from "../modules/doctor/models/doctor-model";
 import getVectorEmbeddings from "./getVectorEmbeddings";
 
-export async function syncDoctorsToPinecone() {
-    const doctors = await DoctorModel.find().populate("user");
+export async function syncAllDoctorsToPinecone() {
+    const doctors = await DoctorModel.find().populate("user").lean();
 
     const vectors = await Promise.all(
         doctors.map(async (doc) => {
-            const docText = `${doc.user.name} ${doc.specialization.join(
-                ", ",
-            )} ${doc.degree.join(", ")} ${doc.bio ?? ""}`;
+            const docText = `
+            ${doc.user.name} 
+            ${doc.specialization.join(", ")} 
+            ${doc.degree.join(", ")} 
+            ${doc.location?.address ?? ""}
+            ${doc.location?.city ?? ""}
+            ${doc.location?.state ?? ""}
+            ${doc.bio ?? ""}`;
+
             const embedding = await getVectorEmbeddings(docText);
             return {
                 id: doc._id.toString(),
