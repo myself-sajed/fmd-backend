@@ -28,6 +28,17 @@ const doctorSchema = new Schema<IDoctor>(
             from: String,
             to: String,
         },
+        location: {
+            address: String,
+            city: String,
+            state: String,
+            country: String,
+            pincode: String,
+            coordinates: {
+                lat: Number,
+                lng: Number,
+            },
+        },
     },
     {
         timestamps: true,
