@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 import doctorRoutes from "./modules/doctor/routes/doctor-crud-routes";
 app.use("/api/v1/doctors", doctorRoutes);
 
+// case routes
 import caseRoutes from "./modules/case/routes/case-crud-routes";
 app.use("/api/v1/cases", caseRoutes);
 
