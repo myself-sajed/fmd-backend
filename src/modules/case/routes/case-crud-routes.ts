@@ -9,7 +9,7 @@ import { CaseService } from "../services/case-crud-services";
 import { CaseController } from "../controllers/case-crud-controller";
 
 const router = Router();
-const caseService = new CaseService();
+export const caseService = new CaseService();
 const caseController = new CaseController(caseService);
 
 router.post(
