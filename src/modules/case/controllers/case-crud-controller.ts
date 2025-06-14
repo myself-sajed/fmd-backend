@@ -1,14 +1,28 @@
 import { Request, Response, NextFunction } from "express";
 import { CaseService } from "../services/case-crud-services";
 import { ICase } from "../types/case-types";
+import { inngest } from "../../../config/inngest";
 
 export class CaseController {
     constructor(private caseService: CaseService) {}
 
     create = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const created = await this.caseService.createCase(req.body as ICase);
-            res.status(201).json({ success: true, data: created });
+            // create a case
+            const createdCase: ICase = await this.caseService.createCase(
+                req.body as ICase,
+            );
+
+            // trigger an Inngest event
+            void inngest.send({
+                name: "case/created",
+                data: {
+                    caseId: createdCase._id.toString(),
+                },
+            });
+
+            // send the data without waiting...
+            res.status(201).json({ success: true, data: createdCase });
         } catch (err) {
             next(err);
         }
@@ -34,7 +48,10 @@ export class CaseController {
 
     update = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const updated = await this.caseService.updateCase(req.params.id, req.body as ICase);
+            const updated = await this.caseService.updateCase(
+                req.params.id,
+                req.body as ICase,
+            );
             res.json({ success: true, data: updated });
         } catch (err) {
             next(err);
