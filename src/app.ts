@@ -1,4 +1,5 @@
-import express, { Request, Response } from "express";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import express, { NextFunction, Request, Response } from "express";
 import { HttpError } from "http-errors";
 import bodyParser from "body-parser";
 
@@ -22,7 +23,8 @@ import caseRoutes from "./modules/case/routes/case-crud-routes";
 app.use("/api/v1/cases", caseRoutes);
 
 // Global error handling
-app.use((err: HttpError, req: Request, res: Response) => {
+app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
+    console.log("request came here");
     const statusCode = err.statusCode || 500;
     res.status(statusCode).json({
         errors: [
