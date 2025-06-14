@@ -9,12 +9,12 @@ export class CaseService {
     }
 
     async getAllCases(filter: Partial<ICase> = {}): Promise<ICase[]> {
-        return CaseModel.find(filter).populate("user assigned_doctor").exec();
+        return CaseModel.find(filter).populate("client assigned_doctor").exec();
     }
 
     async getCaseById(id: string): Promise<ICase> {
         const caseItem = await CaseModel.findById(id)
-            .populate("user assigned_doctor")
+            .populate("client assigned_doctor")
             .exec();
         if (!caseItem) throw createHttpError(404, "Case not found");
         return caseItem;
@@ -25,7 +25,7 @@ export class CaseService {
             new: true,
             runValidators: true,
         })
-            .populate("user assigned_doctor")
+            .populate("client assigned_doctor")
             .exec();
 
         if (!updated) throw createHttpError(404, "Case not found");
