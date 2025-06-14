@@ -10,7 +10,14 @@ export interface IUser {
     _id: Types.ObjectId;
     name: string;
     email: string;
-    photoURL: string;
-    password: string;
     role: UserRoles;
+    password: string;
+    photoURL: string;
+    gender: Gender;
+}
+
+export enum Gender {
+    MALE = "Male",
+    FEMALE = "Female",
+    OTHER = "Other",
 }
