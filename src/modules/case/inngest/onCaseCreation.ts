@@ -4,6 +4,9 @@ import { caseService } from "../routes/case-crud-routes";
 import { CaseStatus, ICase, ICaseErrors } from "../types/case-types";
 import createClientQueryEmbeddings from "./functions/createClientQueryEmbeddings";
 import getDoctorsFromEmbeddings from "./functions/getDoctorsFromEmbeddings";
+import { doctorService } from "../../doctor/routes/doctor-crud-routes";
+import analyseCase from "./agents/analyseCase";
+import { IDoctor } from "../../doctor/types/doctor-types";
 
 const onCaseCreation = inngest.createFunction(
     // argument 1: function metadata
@@ -141,9 +144,20 @@ const onCaseCreation = inngest.createFunction(
                 });
             });
 
+            // step 6.2 get the doctors from the db
+            const doctors = await step.run("get-doctors-from-db", async () => {
+                const doctorIds = doctorMatches.map(
+                    (i) => i.metadata?.doctorId,
+                );
+                return await doctorService.getAllByIds(doctorIds as string[]);
+            });
+
             // step 7: analyse case
             await step.run("analyse-case", async () => {
-                // case analysis goes here
+                return analyseCase(
+                    caseObject as ICase,
+                    doctors as unknown as IDoctor[],
+                );
             });
         } catch (error) {
             return;
