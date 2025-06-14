@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { IUser, UserRoles } from "../types/user-types";
+import { Gender, IUser, UserRoles } from "../types/user-types";
 
 const userSchema: Schema<IUser> = new Schema(
     {
@@ -27,6 +27,10 @@ const userSchema: Schema<IUser> = new Schema(
             type: String,
             enum: Object.values(UserRoles),
             default: UserRoles.PATIENT,
+        },
+        gender: {
+            type: String,
+            enum: Object.values(Gender),
         },
     },
     {
