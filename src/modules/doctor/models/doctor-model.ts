@@ -23,6 +23,10 @@ const doctorSchema = new Schema<IDoctor>(
         bio: {
             type: String,
         },
+        languages: {
+            type: [String],
+            required: true,
+        },
         availability: {
             days: [String],
             from: String,

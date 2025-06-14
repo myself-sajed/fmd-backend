@@ -2,14 +2,16 @@ import { IUser } from "../../authentication/types/user-types";
 
 export interface IDoctor {
     user: IUser;
-    specialization: string[]; // e.g., ['Cardiology', 'Neurology']
-    degree: string[]; // e.g., ['MBBS', 'MD']
+    specialization: string[];
+    degree: string[];
     experience: number;
     bio?: string;
+    languages: string[];
+    consultation_types: IDoctorConsultationTypes;
     availability?: {
-        days: string[]; // e.g., ['Monday', 'Wednesday']
-        from: string; // e.g., '09:00'
-        to: string; // e.g., '17:00'
+        days: string[];
+        from: string;
+        to: string;
     };
     location?: {
         address?: string;
@@ -35,4 +37,10 @@ export interface IGetAllDoctorFilter {
     };
     page?: number;
     limit?: number;
+}
+
+export enum IDoctorConsultationTypes {
+    ONLINE = "Online",
+    OFFLINE = "Offline",
+    BOTH = "Online & Offline",
 }
