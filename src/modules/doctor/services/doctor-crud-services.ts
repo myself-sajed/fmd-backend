@@ -19,6 +19,12 @@ export class DoctorService {
         return DoctorModel.find(filter).populate("user").exec();
     }
 
+    async getAllByIds(doctorIds: string[]): Promise<IDoctor[]> {
+        return DoctorModel.find({ id: { $in: doctorIds } })
+            .populate("user")
+            .exec();
+    }
+
     async getDoctorById(id: string): Promise<IDoctor> {
         const doctor = await DoctorModel.findById(id).populate("user");
         if (!doctor) throw createHttpError(404, "Doctor not found");
@@ -35,7 +41,7 @@ export class DoctorService {
         // If user data is included in the update
         if (payload.user && typeof payload.user === "object") {
             const userPayload = payload.user as Partial<IUser>;
-            const userId = (doctor.user as IUser)._id;
+            const userId = doctor.user._id;
 
             await UserModel.findByIdAndUpdate(userId, userPayload, {
                 new: true,

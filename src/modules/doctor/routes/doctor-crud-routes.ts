@@ -9,13 +9,23 @@ import { DoctorController } from "../controllers/doctor-crud-controller";
 import { DoctorService } from "../services/doctor-crud-services";
 
 const router = Router();
-const doctorService = new DoctorService();
+export const doctorService = new DoctorService();
 const doctorController = new DoctorController(doctorService);
 
 router.post(
     "/",
     (req: Request, res: Response, next: NextFunction) =>
         doctorController.create(req, res, next) as unknown as RequestHandler,
+);
+
+router.post(
+    "/get-multiple-by-ids",
+    (req: Request, res: Response, next: NextFunction) =>
+        doctorController.getAllByIds(
+            req,
+            res,
+            next,
+        ) as unknown as RequestHandler,
 );
 
 router.get(

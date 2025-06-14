@@ -27,6 +27,16 @@ export class DoctorController {
         }
     }
 
+    async getAllByIds(req: Request, res: Response, next: NextFunction) {
+        try {
+            const doctorIds: string[] = req.body as string[];
+            const result = await this.doctorService.getAllByIds(doctorIds);
+            return res.status(200).json({ success: true, data: result });
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async getById(req: Request, res: Response, next: NextFunction) {
         try {
             const result = await this.doctorService.getDoctorById(
