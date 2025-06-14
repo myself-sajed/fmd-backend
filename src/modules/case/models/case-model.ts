@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { CaseStatus, ICase } from "../types/case-types";
+import { CaseStatus, CaseUrgencyLevel, ICase } from "../types/case-types";
 
 const caseSchema = new Schema<ICase>(
     {
@@ -13,7 +13,11 @@ const caseSchema = new Schema<ICase>(
             required: true,
             trim: true,
         },
-        summary: {
+        client_preferences: {
+            type: Object,
+            default: {},
+        },
+        ai_summary: {
             type: String,
             trim: true,
         },
@@ -23,7 +27,7 @@ const caseSchema = new Schema<ICase>(
         },
         urgency_level: {
             type: String,
-            enum: ["low", "medium", "high"],
+            enum: Object.values(CaseUrgencyLevel),
         },
         assigned_doctor: {
             type: Schema.Types.ObjectId,
@@ -36,12 +40,12 @@ const caseSchema = new Schema<ICase>(
         },
         preferred_time: {
             type: String,
-            required: true,
+            required: false,
         },
         scheduled_time: {
             type: Date,
         },
-        notes: {
+        doctor_notes: {
             type: String,
         },
         voice_note_url: {
@@ -53,6 +57,10 @@ const caseSchema = new Schema<ICase>(
         ai_response_log: {
             type: [String],
             default: [],
+        },
+        case_errors: {
+            type: Object,
+            default: {},
         },
     },
     {

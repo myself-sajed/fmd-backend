@@ -1,25 +1,57 @@
 import { Types } from "mongoose";
+import { Gender } from "../../authentication/types/user-types";
+import { IDoctorConsultationTypes } from "../../doctor/types/doctor-types";
+
+export interface ICase {
+    _id: Types.ObjectId | string;
+    client: Types.ObjectId | string;
+    client_raw_query: string;
+    client_preferences: ICaseClientPreferences;
+    ai_summary?: string;
+    suggested_specializations?: string[];
+    urgency_level?: "low" | "medium" | "high";
+    assigned_doctor?: Types.ObjectId;
+    doctor_notes?: string;
+    status: CaseStatus;
+    preferred_time: string;
+    scheduled_time?: Date;
+    voice_note_url?: string;
+    voice_transcript?: string;
+    ai_response_log?: string[];
+    case_errors?: ICaseErrors;
+}
 
 export enum CaseStatus {
     Pending = "pending",
-    AwaitingConfirmation = "awaiting-confirmation",
+    InProgress = "in progress",
+    SuggestingDoctors = "suggesting doctors",
+    FailedSuggestingDoctors = "failed suggesting doctors",
+    Analysing = "analysing",
+    Analysed = "analysed",
+    FailedToAnalyse = "failed to analyse",
+    ScheduleRequested = "schedule requested",
+    AwaitingScheduleConfirmation = "awaiting schedule confirmation",
     Scheduled = "scheduled",
+    DoctorDeclined = "doctor declined",
+    DoctorNoShow = "doctor no show",
     Resolved = "resolved",
     Cancelled = "cancelled",
 }
 
-export interface ICase extends Document {
-    client: Types.ObjectId;
-    client_raw_query: string;
-    summary?: string; // AI-generated summary
-    suggested_specializations?: string[]; // From AI
-    urgency_level?: "low" | "medium" | "high"; // From AI triage
-    assigned_doctor?: Types.ObjectId; // Doctor assigned to the case
-    status: CaseStatus;
-    preferred_time: string; // Preferred time for the appointment from the user
-    scheduled_time?: Date;
-    notes?: string; // Optional doctor/admin notes
-    voice_note_url?: string; // Uploaded voice note from user
-    voice_transcript?: string; // AI-generated transcript
-    ai_response_log?: string[]; // Store any AI logs or message history
+export enum CaseUrgencyLevel {
+    LOW = "low",
+    MEDIUM = "medium",
+    HIGH = "high",
 }
+
+export interface ICaseClientPreferences {
+    language?: string;
+    gender_preference?: Gender | null;
+    consultation_type?: IDoctorConsultationTypes | null;
+    previous_conditions?: string[];
+    location?: string;
+}
+
+export type ICaseErrors = {
+    [key in CaseStatus]: string[];
+};
