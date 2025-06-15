@@ -153,12 +153,14 @@ const onCaseCreation = inngest.createFunction(
             });
 
             // step 7: analyse case
-            await step.run("analyse-case", async () => {
+            const response = await step.run("analyse-case", async () => {
                 return analyseCase(
                     caseObject as ICase,
                     doctors as unknown as IDoctor[],
                 );
             });
+
+            console.log(response);
         } catch (error) {
             return;
         }
