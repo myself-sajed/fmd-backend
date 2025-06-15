@@ -26,13 +26,13 @@ import caseRoutes from "./modules/case/routes/case-crud-routes";
 app.use("/api/v1/cases", caseRoutes);
 
 // serve inngest
-app.use(
-    "/api/inngest",
-    serve({
-        client: inngest,
-        functions: [onCaseCreation],
-    }) as express.RequestHandler,
-);
+// app.use(
+//     "/api/inngest",
+//     serve({
+//         client: inngest,
+//         functions: [onCaseCreation],
+//     }) as express.RequestHandler,
+// );
 
 // Global error handling
 app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
