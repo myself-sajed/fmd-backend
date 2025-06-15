@@ -14,7 +14,7 @@
     "author": "Shaikh Sajed <shaikhsajedcoolpop@gmail.com>",
     "license": "ISC",
     "devDependencies": {
-        "@types/express": "^4.17.18",
+        "@types/express": "^4.17.23",
         "@types/jest": "^29.5.5",
         "@types/node": "^20.7.1",
         "@typescript-eslint/eslint-plugin": "^6.7.3",
