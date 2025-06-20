@@ -29,9 +29,21 @@ const caseSchema = new Schema<ICase>(
             type: String,
             enum: Object.values(CaseUrgencyLevel),
         },
+        suggested_doctors: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Doctor",
+            },
+        ],
         assigned_doctor: {
             type: Schema.Types.ObjectId,
             ref: "Doctor",
+        },
+        ai_doctor_summary: {
+            type: Object,
+        },
+        tips: {
+            type: [String],
         },
         status: {
             type: String,
@@ -53,10 +65,6 @@ const caseSchema = new Schema<ICase>(
         },
         voice_transcript: {
             type: String,
-        },
-        ai_response_log: {
-            type: [String],
-            default: [],
         },
         case_errors: {
             type: Object,
