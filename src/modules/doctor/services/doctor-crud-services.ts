@@ -20,7 +20,7 @@ export class DoctorService {
     }
 
     async getAllByIds(doctorIds: string[]): Promise<IDoctor[]> {
-        return DoctorModel.find({ id: { $in: doctorIds } })
+        return DoctorModel.find({ _id: { $in: doctorIds } })
             .populate("user")
             .exec();
     }
