@@ -1,7 +1,7 @@
 {
-    "name": "pizza-authservice",
+    "name": "find-my-doctor-backend",
     "version": "1.0.0",
-    "description": "Pizza auth service for authentication",
+    "description": "Backend for Find My Doctor AI Application",
     "main": "Server.js",
     "type": "module",
     "scripts": {
