@@ -14,6 +14,7 @@ export interface IUser {
     password: string;
     photoURL: string;
     gender: Gender;
+    onboarded?: boolean;
 }
 
 export enum Gender {

@@ -10,6 +10,8 @@ const {
     PINECONE_API_KEY,
     COHERE_API_KEY,
     GEMINI_AI_API_KEY,
+    JWT_ACCESS_SECRET,
+    JWT_REFRESH_SECRET,
 } = process.env;
 
 export const Config = {
@@ -20,4 +22,6 @@ export const Config = {
     PINECONE_API_KEY,
     COHERE_API_KEY,
     GEMINI_AI_API_KEY,
+    JWT_ACCESS_SECRET,
+    JWT_REFRESH_SECRET,
 };

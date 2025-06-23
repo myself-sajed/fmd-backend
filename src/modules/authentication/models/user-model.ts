@@ -32,6 +32,11 @@ const userSchema: Schema<IUser> = new Schema(
             type: String,
             enum: Object.values(Gender),
         },
+        onboarded: {
+            type: Boolean,
+            required: false,
+            default: true,
+        },
     },
     {
         timestamps: true,
