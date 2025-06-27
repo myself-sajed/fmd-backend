@@ -44,7 +44,7 @@ router.post(
         authController.login(req, res, next) as unknown as RequestHandler,
 );
 
-router.post(
+router.get(
     "/self",
     authenticateAccessToken as RequestHandler,
     (req: Request, res: Response) =>

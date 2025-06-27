@@ -175,7 +175,7 @@ export default class AuthController {
 
             res.clearCookie("accessToken");
             res.clearCookie("refreshToken");
-            res.json({ status: "Logout successful" });
+            res.json({ status: "success" });
         } catch (err) {
             next(createHttpError(400, "Could not log out"));
         }

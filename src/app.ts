@@ -6,13 +6,17 @@ import bodyParser from "body-parser";
 import { inngest } from "./config/inngest";
 import onCaseCreation from "./modules/case/inngest/onCaseCreation";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+
 const app = express();
+
 app.use(
     cors({
         origin: Config.FRONT_END_URL,
         credentials: true,
     }),
 );
+app.use(cookieParser());
 app.use(bodyParser.json());
 
 // index route
