@@ -46,4 +46,17 @@ export class TokenService {
             maxAge,
         });
     }
+
+    clearAuthCookies(res: Response) {
+        res.clearCookie("accessToken", {
+            httpOnly: true,
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+        });
+        res.clearCookie("refreshToken", {
+            httpOnly: true,
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+        });
+    }
 }

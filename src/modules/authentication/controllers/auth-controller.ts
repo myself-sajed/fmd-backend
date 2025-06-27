@@ -7,6 +7,8 @@ import { CredentialManagerService } from "../services/cred-manager-service";
 import { TokenService } from "../services/token-service";
 import { RequestWithAuthInfo, RequestWithUserInfo } from "../types/auth-types";
 import { UserService } from "../services/user-service";
+import { Config } from "../../../config/index";
+import jwt from "jsonwebtoken";
 
 export default class AuthController {
     constructor(
@@ -120,12 +122,54 @@ export default class AuthController {
         }
     }
 
-    async self(req: RequestWithAuthInfo, res: Response) {
-        const user = await this.userservice.findById(String(req.auth.sub));
-        res.json({ ...user, password: undefined });
+    async self(req: RequestWithAuthInfo, res: Response, next: NextFunction) {
+        if (req.tokenError) {
+            // fallback to refresh token
+            const refreshToken = req.cookies?.refreshToken as
+                | string
+                | undefined;
+            if (!refreshToken) {
+                this.tokenService.clearAuthCookies(res);
+                return res
+                    .status(401)
+                    .json({ error: "Session expired. Please log in again." });
+            }
+
+            try {
+                const payload = jwt.verify(
+                    refreshToken,
+                    Config.JWT_REFRESH_SECRET!,
+                ) as JwtPayload;
+
+                // Set req.auth manually from refresh token payload
+                req.auth = payload as {
+                    sub: string;
+                    name: string;
+                    email: string;
+                    role: string;
+                    id?: string;
+                };
+
+                return await this.refresh(req, res, next); // Use updated auth
+            } catch (err) {
+                this.tokenService.clearAuthCookies(res);
+                return res
+                    .status(403)
+                    .json({ error: "Invalid or expired refresh token." });
+            }
+        }
+
+        try {
+            const user = await this.userservice.findById(String(req.auth.sub));
+            if (!user) return res.status(404).json({ error: "User not found" });
+            res.json({ ...user, password: undefined });
+        } catch (err) {
+            next(err);
+        }
     }
 
     async refresh(req: RequestWithAuthInfo, res: Response, next: NextFunction) {
+        console.log("req came in refresh");
         try {
             const payload: JwtPayload = {
                 sub: req.auth.sub,
@@ -133,6 +177,8 @@ export default class AuthController {
                 name: req.auth.name,
                 email: req.auth.email,
             };
+
+            console.log(payload);
 
             const user = await this.userservice.findById(String(req.auth.sub));
             if (!user) return next(createHttpError(400, "Invalid user"));
@@ -162,19 +208,21 @@ export default class AuthController {
 
             res.status(201).json(user);
         } catch (error) {
+            console.log(error);
             next(error);
         }
     }
 
     async logout(req: RequestWithAuthInfo, res: Response, next: NextFunction) {
         try {
-            if (req.auth.id)
+            if (req.auth.id) {
                 await this.tokenService.deleteRefreshToken(req.auth.id);
+            }
 
             this.logger.info("User logged out", { id: req.auth.sub });
 
-            res.clearCookie("accessToken");
-            res.clearCookie("refreshToken");
+            this.tokenService.clearAuthCookies(res);
+
             res.json({ status: "success" });
         } catch (err) {
             next(createHttpError(400, "Could not log out"));
