@@ -169,7 +169,6 @@ export default class AuthController {
     }
 
     async refresh(req: RequestWithAuthInfo, res: Response, next: NextFunction) {
-        console.log("req came in refresh");
         try {
             const payload: JwtPayload = {
                 sub: req.auth.sub,
@@ -177,8 +176,6 @@ export default class AuthController {
                 name: req.auth.name,
                 email: req.auth.email,
             };
-
-            console.log(payload);
 
             const user = await this.userservice.findById(String(req.auth.sub));
             if (!user) return next(createHttpError(400, "Invalid user"));
@@ -208,7 +205,6 @@ export default class AuthController {
 
             res.status(201).json(user);
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }
