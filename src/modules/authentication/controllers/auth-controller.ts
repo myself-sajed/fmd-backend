@@ -26,13 +26,14 @@ export default class AuthController {
             return res.status(400).json({ errors: result.array() });
         }
 
-        const { name, email, password, role } = req.body;
+        const { name, email, password, role, photoURL } = req.body;
         try {
             const user = await this.userservice.create({
                 name,
                 email,
                 password,
                 role,
+                photoURL,
             });
 
             const payload: JwtPayload = {

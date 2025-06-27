@@ -6,6 +6,7 @@ const {
     PORT,
     NODE_ENV,
     MONGO_URI,
+    FRONT_END_URL,
     OPEN_AI_API_KEY,
     PINECONE_API_KEY,
     COHERE_API_KEY,
@@ -17,6 +18,7 @@ const {
 export const Config = {
     PORT,
     NODE_ENV,
+    FRONT_END_URL,
     MONGO_URI,
     OPEN_AI_API_KEY,
     PINECONE_API_KEY,

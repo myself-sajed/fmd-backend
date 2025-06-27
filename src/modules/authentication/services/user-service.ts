@@ -7,6 +7,7 @@ export class UserService {
         name: string;
         email: string;
         password: string;
+        photoURL: string;
         role?: string;
     }): Promise<IUser> {
         const user = new UserModel(data);

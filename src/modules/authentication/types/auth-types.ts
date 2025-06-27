@@ -5,6 +5,7 @@ export interface UserInfo {
     email: string;
     password: string;
     role: string;
+    photoURL: string;
 }
 
 export interface RequestWithUserInfo extends Request {

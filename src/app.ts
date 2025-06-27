@@ -5,8 +5,14 @@ import { HttpError } from "http-errors";
 import bodyParser from "body-parser";
 import { inngest } from "./config/inngest";
 import onCaseCreation from "./modules/case/inngest/onCaseCreation";
-
+import cors from "cors";
 const app = express();
+app.use(
+    cors({
+        origin: Config.FRONT_END_URL,
+        credentials: true,
+    }),
+);
 app.use(bodyParser.json());
 
 // index route
@@ -18,11 +24,16 @@ app.get("/", (req, res) => {
 });
 
 // doctor outes
+import authRoutes from "./modules/authentication/routes/auth";
+app.use("/api/v1/auth", authRoutes);
+
+// doctor outes
 import doctorRoutes from "./modules/doctor/routes/doctor-crud-routes";
 app.use("/api/v1/doctors", doctorRoutes);
 
 // case routes
 import caseRoutes from "./modules/case/routes/case-crud-routes";
+import { Config } from "./config";
 app.use("/api/v1/cases", caseRoutes);
 
 // serve inngest
@@ -36,7 +47,6 @@ app.use(
 
 // Global error handling
 app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
-    console.log("request came here");
     const statusCode = err.statusCode || 500;
     res.status(statusCode).json({
         errors: [
