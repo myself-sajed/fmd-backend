@@ -5,6 +5,7 @@ import { IDoctorConsultationTypes } from "../../doctor/types/doctor-types";
 export interface ICase {
     _id: Types.ObjectId | string;
     client: Types.ObjectId | string;
+    ai_case_name?: string;
     client_raw_query: string;
     client_preferences: ICaseClientPreferences;
     ai_summary?: string;
@@ -78,6 +79,7 @@ export interface IAIDoctorMatch {
 
 export interface IAIParsedOutput {
     ai_summary: string;
+    ai_case_name: string;
     suggested_specializations: string[];
     urgency_level: "low" | "medium" | "high";
     suggested_doctors: IAIDoctorMatch[];

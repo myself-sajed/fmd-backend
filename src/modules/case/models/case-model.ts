@@ -13,6 +13,11 @@ const caseSchema = new Schema<ICase>(
             required: true,
             trim: true,
         },
+        ai_case_name: {
+            type: String,
+            required: false,
+            trim: true,
+        },
         client_preferences: {
             type: Object,
             default: {},

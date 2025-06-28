@@ -23,6 +23,7 @@ Follow these steps carefully:
 
 {
   "ai_summary": "string",
+  "ai_case_name": "string",
   "suggested_specializations": ["string", "string"],
   "urgency_level": "low" | "medium" | "high",
   "suggested_doctors": [
@@ -37,6 +38,7 @@ Follow these steps carefully:
   "tips": ["string", "string", "string", "string", "string"]
 }
 
+The AI case name (ai_case_name) should be exactly 4 word summary of what this query / case is about- e.g. Left side chest pain.
 Do not include any markdown, explanation, or extra text. Return valid JSON only.
 Be thoughtful and friendly while staying professional and medically grounded.
 `;

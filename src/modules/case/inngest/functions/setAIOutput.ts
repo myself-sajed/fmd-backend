@@ -45,6 +45,7 @@ const setAIOutput = async (
 
         const {
             ai_summary,
+            ai_case_name,
             suggested_specializations,
             urgency_level,
             suggested_doctors,
@@ -81,6 +82,7 @@ const setAIOutput = async (
 
         const dataToUpdate = {
             ai_summary,
+            ai_case_name: ai_case_name || `Case - ${caseObject._id.toString()}`,
             suggested_specializations,
             urgency_level,
             suggested_doctors: doctorObjectIds,
