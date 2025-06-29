@@ -7,33 +7,39 @@ import {
 } from "express";
 import { CaseService } from "../services/case-crud-services";
 import { CaseController } from "../controllers/case-crud-controller";
+import authenticateUser from "../../authentication/middlewares/authenticateUser";
 
 const router = Router();
 export const caseService = new CaseService();
 const caseController = new CaseController(caseService);
 
 router.post(
-    "/",
+    "/create-case",
+    authenticateUser as RequestHandler,
     (req: Request, res: Response, next: NextFunction) =>
         caseController.create(req, res, next) as unknown as RequestHandler,
 );
 router.get(
-    "/",
+    "/get-all-cases",
+    authenticateUser as RequestHandler,
     (req: Request, res: Response, next: NextFunction) =>
         caseController.getAll(req, res, next) as unknown as RequestHandler,
 );
 router.get(
-    "/:id",
+    "/get-one-case/:id",
+    authenticateUser as RequestHandler,
     (req: Request, res: Response, next: NextFunction) =>
         caseController.getById(req, res, next) as unknown as RequestHandler,
 );
 router.put(
-    "/:id",
+    "/update-case/:id",
+    authenticateUser as RequestHandler,
     (req: Request, res: Response, next: NextFunction) =>
         caseController.update(req, res, next) as unknown as RequestHandler,
 );
 router.delete(
-    "/:id",
+    "/delete-case/:id",
+    authenticateUser as RequestHandler,
     (req: Request, res: Response, next: NextFunction) =>
         caseController.delete(req, res, next) as unknown as RequestHandler,
 );

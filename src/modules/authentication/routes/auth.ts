@@ -15,7 +15,7 @@ import authenticateRefreshToken from "../middlewares/authenticate-refresh-token"
 import parseRefreshToken from "../middlewares/parse-refresh-token";
 import registrationValidators from "../validators/registration-validators";
 import loginValidators from "../validators/login-validators";
-import selfAuthenticate from "../middlewares/self-authenticate";
+import authenticateUser from "../middlewares/authenticateUser";
 
 const router = express.Router();
 
@@ -47,7 +47,7 @@ router.post(
 
 router.get(
     "/self",
-    selfAuthenticate as RequestHandler,
+    authenticateUser as RequestHandler,
     (req: Request, res: Response, next: NextFunction) =>
         authController.self(
             req as RequestWithAuthInfo,

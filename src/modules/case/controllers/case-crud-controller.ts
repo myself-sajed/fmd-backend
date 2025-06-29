@@ -2,16 +2,22 @@ import { Request, Response, NextFunction } from "express";
 import { CaseService } from "../services/case-crud-services";
 import { ICase } from "../types/case-types";
 import { inngest } from "../../../config/inngest";
+import createHttpError from "http-errors";
 
 export class CaseController {
     constructor(private caseService: CaseService) {}
 
     create = async (req: Request, res: Response, next: NextFunction) => {
+        if (!req?.auth) {
+            return next(createHttpError(403, "User is not logged in..."));
+        }
+
+        const caseBody = { ...req.body, client: req.auth.sub } as ICase;
+
         try {
             // create a case
-            const createdCase: ICase = await this.caseService.createCase(
-                req.body as ICase,
-            );
+            const createdCase: ICase =
+                await this.caseService.createCase(caseBody);
 
             // trigger an Inngest event
             void inngest.send({
@@ -29,8 +35,14 @@ export class CaseController {
     };
 
     getAll = async (_req: Request, res: Response, next: NextFunction) => {
+        if (!_req?.auth) {
+            return next(createHttpError(403, "User is not logged in..."));
+        }
+
+        const filter = { client: _req.auth?.sub };
+
         try {
-            const allCases = await this.caseService.getAllCases();
+            const allCases = await this.caseService.getAllCases(filter);
             res.json({ success: true, data: allCases });
         } catch (err) {
             next(err);

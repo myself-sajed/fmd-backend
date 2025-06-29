@@ -4,18 +4,33 @@ import { ICase } from "../types/case-types";
 
 export class CaseService {
     async createCase(payload: Partial<ICase>): Promise<ICase> {
-        const newCase = await CaseModel.create(payload);
+        const caseName = `CASE-${new Date().getTime()}`;
+        const newCase = await CaseModel.create({
+            ...payload,
+            ai_case_name: caseName,
+        });
         return newCase;
     }
 
     async getAllCases(filter: Partial<ICase> = {}): Promise<ICase[]> {
-        return CaseModel.find(filter).populate("client assigned_doctor").exec();
+        return await CaseModel.find(filter)
+            .populate("client")
+            .sort({ createdAt: -1 }) // Sort by createdAt descending
+            .exec();
     }
 
     async getCaseById(id: string): Promise<ICase> {
         const caseItem = await CaseModel.findById(id)
-            .populate("client assigned_doctor")
+            .populate("client")
+            .populate({
+                path: "suggested_doctors",
+                populate: {
+                    path: "user", // 👈 nested population inside each suggested_doctor
+                    model: "User", // 👈 make sure this matches your User model name
+                },
+            })
             .exec();
+
         if (!caseItem) throw createHttpError(404, "Case not found");
         return caseItem;
     }

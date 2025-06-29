@@ -70,7 +70,7 @@ export const getDynamicPromptForCaseAnalysis = (
   ${doctors
       .map(
           (doc, i) => `Doctor ${i + 1}:
-    - doctorId: ${doc.user._id?.toString()}
+    - doctorId: ${doc._id?.toString()}
     - Name: ${doc.user.name}
     - Specializations: ${doc.specialization.join(", ")}
     - Degrees: ${doc.degree.join(", ")}
