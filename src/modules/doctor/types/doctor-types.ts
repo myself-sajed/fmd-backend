@@ -1,6 +1,7 @@
 import { IUser } from "../../authentication/types/user-types";
 
 export interface IDoctor {
+    _id: string;
     user: IUser;
     specialization: string[];
     degree: string[];
