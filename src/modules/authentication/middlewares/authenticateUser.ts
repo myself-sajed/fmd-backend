@@ -9,7 +9,7 @@ declare module "express-serve-static-core" {
     }
 }
 
-export default function selfAuthenticate(
+export default function authenticateUser(
     req: Request,
     res: Response,
     next: NextFunction,
