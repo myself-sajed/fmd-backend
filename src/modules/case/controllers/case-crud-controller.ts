@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { CaseService } from "../services/case-crud-services";
-import { ICase } from "../types/case-types";
+import { CaseStatus, ICase, ICaseErrors } from "../types/case-types";
 import { inngest } from "../../../config/inngest";
 import createHttpError from "http-errors";
 
@@ -20,15 +20,32 @@ export class CaseController {
                 await this.caseService.createCase(caseBody);
 
             // trigger an Inngest event
-            void inngest.send({
-                name: "case/created",
-                data: {
-                    caseId: createdCase._id.toString(),
-                },
-            });
+            try {
+                void inngest.send({
+                    name: "case/created",
+                    data: {
+                        caseId: createdCase._id.toString(),
+                    },
+                });
+            } catch (error) {
+                await this.caseService.updateCase(createdCase._id.toString(), {
+                    status: CaseStatus.FailedToInitiate,
+                    case_errors: {
+                        [CaseStatus.FailedToInitiate]: [
+                            "Could not initiate the case analysis. Please try again later.",
+                        ],
+                    } as ICaseErrors,
+                });
+                return res
+                    .send(401)
+                    .json({
+                        success: false,
+                        message: "Failed to analyse the case",
+                    });
+            }
 
             // send the data without waiting...
-            res.status(201).json({ success: true, data: createdCase });
+            return res.status(201).json({ success: true, data: createdCase });
         } catch (err) {
             next(err);
         }

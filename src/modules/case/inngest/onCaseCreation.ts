@@ -18,6 +18,7 @@ const onCaseCreation = inngest.createFunction(
 
     // argument 3: function handler
     async ({ event, step }) => {
+        console.log("req came here in case creation");
         try {
             const caseId = (event.data as Record<string, string>)?.caseId;
             if (!caseId) {
