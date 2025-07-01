@@ -49,6 +49,11 @@ app.use(
     }) as express.RequestHandler,
 );
 
+// Health check route
+app.get("/health", (req, res) => {
+    res.status(200).send({ status: "ok", message: "API Server is healthy" });
+});
+
 // Global error handling
 app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
     const statusCode = err.statusCode || 500;
