@@ -13,6 +13,7 @@ const {
     GEMINI_AI_API_KEY,
     JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET,
+    INNGEST_SIGNING_KEY,
 } = process.env;
 
 export const Config = {
@@ -26,4 +27,5 @@ export const Config = {
     GEMINI_AI_API_KEY,
     JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET,
+    INNGEST_SIGNING_KEY,
 };
