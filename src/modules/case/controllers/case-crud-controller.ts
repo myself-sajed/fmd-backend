@@ -36,12 +36,10 @@ export class CaseController {
                         ],
                     } as ICaseErrors,
                 });
-                return res
-                    .send(401)
-                    .json({
-                        success: false,
-                        message: "Failed to analyse the case",
-                    });
+                return res.send(401).json({
+                    success: false,
+                    message: "Failed to analyse the case",
+                });
             }
 
             // send the data without waiting...
@@ -90,7 +88,7 @@ export class CaseController {
     delete = async (req: Request, res: Response, next: NextFunction) => {
         try {
             await this.caseService.deleteCase(req.params.id);
-            res.status(204).send();
+            res.status(204).send({ success: true });
         } catch (err) {
             next(err);
         }

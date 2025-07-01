@@ -14,9 +14,8 @@ export class CaseService {
 
     async getAllCases(filter: Partial<ICase> = {}): Promise<ICase[]> {
         return await CaseModel.find(filter)
-            .populate("client")
-            .sort({ createdAt: -1 }) // Sort by createdAt descending
-            .exec();
+            .select("_id ai_case_name")
+            .sort({ createdAt: -1 }); // Sort by createdAt descending
     }
 
     async getCaseById(id: string): Promise<ICase> {
