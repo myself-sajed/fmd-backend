@@ -14,6 +14,7 @@ const {
     JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET,
     INNGEST_SIGNING_KEY,
+    INNGEST_EVENT_KEY,
 } = process.env;
 
 export const Config = {
@@ -28,4 +29,5 @@ export const Config = {
     JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET,
     INNGEST_SIGNING_KEY,
+    INNGEST_EVENT_KEY,
 };
