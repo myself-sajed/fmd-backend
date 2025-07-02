@@ -50,13 +50,13 @@ export class TokenService {
     clearAuthCookies(res: Response) {
         res.clearCookie("accessToken", {
             httpOnly: true,
-            sameSite: "strict",
-            secure: process.env.NODE_ENV === "production",
+            secure: Config.NODE_ENV === "production",
+            sameSite: Config.NODE_ENV === "production" ? "none" : "strict",
         });
         res.clearCookie("refreshToken", {
             httpOnly: true,
-            sameSite: "strict",
-            secure: process.env.NODE_ENV === "production",
+            secure: Config.NODE_ENV === "production",
+            sameSite: Config.NODE_ENV === "production" ? "none" : "strict",
         });
     }
 }
