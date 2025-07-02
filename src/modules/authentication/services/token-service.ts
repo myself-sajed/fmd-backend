@@ -42,7 +42,7 @@ export class TokenService {
         res.cookie(key, token, {
             httpOnly: true,
             secure: Config.NODE_ENV === "production",
-            sameSite: "strict",
+            sameSite: Config.NODE_ENV === "production" ? "none" : "strict",
             maxAge,
         });
     }
