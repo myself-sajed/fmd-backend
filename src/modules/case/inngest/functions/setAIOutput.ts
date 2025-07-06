@@ -50,6 +50,7 @@ const setAIOutput = async (
             urgency_level,
             suggested_doctors,
             tips,
+            suggested_tests,
         } = parsed;
 
         // Validate parsed types
@@ -87,7 +88,8 @@ const setAIOutput = async (
             urgency_level,
             suggested_doctors: doctorObjectIds,
             ai_doctor_summary: aiDoctorSummary,
-            tips,
+            tips: tips || [],
+            suggested_tests: suggested_tests || [],
             status: CaseStatus.Analysed,
         };
 
