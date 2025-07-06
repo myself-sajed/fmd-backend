@@ -36,6 +36,7 @@ Follow these steps carefully:
     }
   ],
   "tips": ["string", "string", "string", "string", "string"]
+  "suggested_tests": ["string", "string"] - atleast two tests should be suggested and maximum 5 - along with the reason in the string itself. e.g. Do a blood test to check for an infections. (proper reasoning is important)
 }
 
 The AI case name (ai_case_name) should be exactly 4 word summary of what this query / case is about- e.g. Left side chest pain.
@@ -88,7 +89,7 @@ export const getDynamicPromptForCaseAnalysis = (
   🎯 Your task:
   - Analyze the patient’s query and preferences
   - Select the most appropriate specializations
-  - Suggest doctors best matching the profile with strong, patient-friendly reasons
+  - Suggest doctors best matching the profile with strong, patient-friendly reasons and rank the doctors accordingly (by suitability score)
   - Estimate the urgency level
   - Return only the final result in **valid JSON** (no markdown or comments)
   
