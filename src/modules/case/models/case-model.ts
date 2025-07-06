@@ -50,6 +50,9 @@ const caseSchema = new Schema<ICase>(
         tips: {
             type: [String],
         },
+        suggested_tests: {
+            type: [String],
+        },
         status: {
             type: String,
             enum: Object.values(CaseStatus),
