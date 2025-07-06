@@ -16,6 +16,7 @@ export interface ICase {
     ai_doctor_summary: IAIDoctorSummary;
     doctor_notes?: string;
     tips: string[];
+    suggested_tests: string[];
     status: CaseStatus;
     preferred_time: string;
     scheduled_time?: Date;
@@ -84,4 +85,5 @@ export interface IAIParsedOutput {
     urgency_level: "low" | "medium" | "high";
     suggested_doctors: IAIDoctorMatch[];
     tips: string[];
+    suggested_tests: string[];
 }
