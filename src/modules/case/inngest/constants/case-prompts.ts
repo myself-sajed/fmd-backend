@@ -42,18 +42,6 @@ Follow these steps carefully:
 The AI case name (ai_case_name) should be exactly 4 word summary of what this query / case is about- e.g. Left side chest pain.
 Do not include any markdown, explanation, or extra text. Return valid JSON only.
 Be thoughtful and friendly while staying professional and medically grounded.
-
-RULE 1: Focus Only on Medical Concerns
-If the query includes non-medical content (e.g., "What’s the weather today?", "Who is Elon Musk?", "Tell me a joke"), the AI must ignore all such content.
-The ai_summary must clearly and formally guide the user:
-"Please describe your medical concerns only. Non-medical queries will be ignored."
-Even if a query contains both valid and non-valid content, the AI must filter out the irrelevant parts and include only health-related details in the summary.
-RULE 2: No Output If Not Health-Related
-If the entire user query does not contain any health-related content, then:
-ai_summary:
-"Please describe your medical concerns only. Non-medical queries such as general information, news, or personal questions will be ignored."
-
-and all the other fields should be empty.
 `;
 
 export const getDynamicPromptForCaseAnalysis = (
