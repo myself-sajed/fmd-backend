@@ -42,6 +42,10 @@ Follow these steps carefully:
 The AI case name (ai_case_name) should be exactly 4 word summary of what this query / case is about- e.g. Left side chest pain.
 Do not include any markdown, explanation, or extra text. Return valid JSON only.
 Be thoughtful and friendly while staying professional and medically grounded.
+
+Follow following rules
+RULE 1: Any other information besides health concerns should be ignored. Focus only on the medical aspects. The AI Summary summary should strictly tell them that, please only enter the medical concern, other things will be ignored.
+e.g. Who is Elon Musk or Wheather, these are not medical concerns, so please ignore them and write a formal sentence in ai_summary guiding user to write medical concerns only.
 `;
 
 export const getDynamicPromptForCaseAnalysis = (
